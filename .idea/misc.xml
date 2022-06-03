@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/drawable/circle_green.xml" value="0.1125" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/drawable/receive_drawable.xml" value="0.1" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/drawable/sent_drawable.xml" value="0.1" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/drawable/textbox_outline.xml" value="0.1" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/font/roboto_light.xml" value="0.1" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/activity_chat.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/activity_group_chat.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/activity_otpactivity.xml" value="0.2" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/activity_phone_number.xml" value="0.264" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/activity_setup_profile.xml" value="0.176" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/delete_dialog.xml" value="0.18504273504273505" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/demo_layout.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/demo_status.xml" value="0.1841880341880342" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/item_receive.xml" value="0.2" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/item_receive_group.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/item_send.xml" value="0.1" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/item_sent.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/item_sent_group.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/item_status.xml" value="0.176" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/layout/row_conversation.xml" value="0.2" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/menu/chat_menu.xml" value="0.22552083333333334" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/menu/menu.xml" value="0.264" />
+        <entry key="..\:/Users/naran/AndroidStudioProjects/CJ/app/src/main/res/menu/topmenu.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
