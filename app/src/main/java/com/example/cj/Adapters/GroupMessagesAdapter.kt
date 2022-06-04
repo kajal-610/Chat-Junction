@@ -30,7 +30,7 @@ import kotlin.Any as Any1
 
 class GroupMessagesAdapter(var context: Context, var messages: ArrayList<Message>) :
 
-    RecyclerView.Adapter<Any1?>() {
+    RecyclerView.Adapter<kotlin.Any1>() {
     val ITEM_SENT = 1
     val ITEM_RECEIVE = 2
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -77,9 +77,11 @@ class GroupMessagesAdapter(var context: Context, var messages: ArrayList<Message
                 viewHolder.binding.feeling.setVisibility(View.VISIBLE)
             }
             message.feeling = (pos)
-            FirebaseDatabase.getInstance().getReference()
-                .child("public")
-                .child(message.messageId).setValue(message)
+            message.messageId?.let {
+                FirebaseDatabase.getInstance().getReference()
+                    .child("public")
+                    .child(it).setValue(message)
+            }
             true // true is closing popup, false is requesting a new selection
         }
         if (holder.javaClass == SentViewHolder::class.java) {
@@ -92,21 +94,23 @@ class GroupMessagesAdapter(var context: Context, var messages: ArrayList<Message
                     .placeholder(R.drawable.placeholder)
                     .into(viewHolder.binding.image)
             }
-            FirebaseDatabase.getInstance()
-                .reference.child("users")
-                .child(message.senderId)
-                .addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        if (snapshot.exists()) {
-                            val user = snapshot.getValue(
-                                User::class.java
-                            )
-                            viewHolder.binding.name.text = "@" + user!!.name
+            message.senderId?.let {
+                FirebaseDatabase.getInstance()
+                    .reference.child("users")
+                    .child(it)
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            if (snapshot.exists()) {
+                                val user = snapshot.getValue(
+                                    User::class.java
+                                )
+                                viewHolder.binding.name.text = "@" + user!!.name
+                            }
                         }
-                    }
 
-                    override fun onCancelled(error: DatabaseError) {}
-                })
+                        override fun onCancelled(error: DatabaseError) {}
+                    })
+            }
             viewHolder.binding.message.text = message.message
             if (message.feeling >= 0) {
                 viewHolder.binding.feeling.setImageResource(reactions[message.feeling])
@@ -136,17 +140,21 @@ class GroupMessagesAdapter(var context: Context, var messages: ArrayList<Message
                         override fun onClick(v: View) {
                             message.message = "This message is removed."
                             message.feeling = -1
-                            FirebaseDatabase.getInstance().reference
-                                .child("public")
-                                .child(message.messageId).setValue(message)
+                            message.messageId?.let {
+                                FirebaseDatabase.getInstance().reference
+                                    .child("public")
+                                    .child(it).setValue(message)
+                            }
                             dialog.dismiss()
                         }
                     })
                     binding.delete.setOnClickListener(object : View.OnClickListener {
                         override fun onClick(v: View) {
-                            FirebaseDatabase.getInstance().reference
-                                .child("public")
-                                .child(message.messageId).setValue(null)
+                            message.messageId?.let {
+                                FirebaseDatabase.getInstance().reference
+                                    .child("public")
+                                    .child(it).setValue(null)
+                            }
                             dialog.dismiss()
                         }
                     })
@@ -169,21 +177,23 @@ class GroupMessagesAdapter(var context: Context, var messages: ArrayList<Message
                     .placeholder(R.drawable.placeholder)
                     .into(viewHolder.binding.image)
             }
-            FirebaseDatabase.getInstance()
-                .reference.child("users")
-                .child(message.senderId)
-                .addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        if (snapshot.exists()) {
-                            val user = snapshot.getValue(
-                                User::class.java
-                            )
-                            viewHolder.binding.name.text = "@" + user!!.name
+            message.senderId?.let {
+                FirebaseDatabase.getInstance()
+                    .reference.child("users")
+                    .child(it)
+                    .addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            if (snapshot.exists()) {
+                                val user = snapshot.getValue(
+                                    User::class.java
+                                )
+                                viewHolder.binding.name.text = "@" + user!!.name
+                            }
                         }
-                    }
 
-                    override fun onCancelled(error: DatabaseError) {}
-                })
+                        override fun onCancelled(error: DatabaseError) {}
+                    })
+            }
             viewHolder.binding.message.text = message.message
             if (message.feeling >= 0) {
                 //message.setFeeling(reactions[message.getFeeling()]);
@@ -216,17 +226,21 @@ class GroupMessagesAdapter(var context: Context, var messages: ArrayList<Message
                         override fun onClick(v: View) {
                             message.message = "This message is removed."
                             message.feeling = -1
-                            FirebaseDatabase.getInstance().reference
-                                .child("public")
-                                .child(message.messageId).setValue(message)
+                            message.messageId?.let {
+                                FirebaseDatabase.getInstance().reference
+                                    .child("public")
+                                    .child(it).setValue(message)
+                            }
                             dialog.dismiss()
                         }
                     })
                     binding.delete.setOnClickListener(object : View.OnClickListener {
                         override fun onClick(v: View) {
-                            FirebaseDatabase.getInstance().reference
-                                .child("public")
-                                .child(message.messageId).setValue(null)
+                            message.messageId?.let {
+                                FirebaseDatabase.getInstance().reference
+                                    .child("public")
+                                    .child(it).setValue(null)
+                            }
                             dialog.dismiss()
                         }
                     })
