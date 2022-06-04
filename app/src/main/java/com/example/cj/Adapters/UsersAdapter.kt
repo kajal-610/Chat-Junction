@@ -28,9 +28,9 @@ class UsersAdapter(var context: Context, var users: ArrayList<User?>?) :
     }
 
     override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
-        val user = users[position]
+        val user = users?.get(position)
         val senderId = FirebaseAuth.getInstance().uid
-        val senderRoom = senderId + user.uid
+        val senderRoom = senderId + user?.uid
         FirebaseDatabase.getInstance().reference
             .child("chats")
             .child(senderRoom)
@@ -53,22 +53,34 @@ class UsersAdapter(var context: Context, var users: ArrayList<User?>?) :
 
                 override fun onCancelled(error: DatabaseError) {}
             })
-        holder.binding.username.text = user.name
-        Glide.with(context).load(user.profileImage)
-            .placeholder(R.drawable.avatar)
-            .into(holder.binding.profile)
+        if (user != null) {
+            holder.binding.username.text = user.name
+        }
+        if (user != null) {
+            Glide.with(context).load(user.profileImage)
+                .placeholder(R.drawable.avatar)
+                .into(holder.binding.profile)
+        }
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ChatActivity::class.java)
-            intent.putExtra("name", user.name)
-            intent.putExtra("image", user.profileImage)
-            intent.putExtra("uid", user.uid)
-            intent.putExtra("token", user.token)
+            if (user != null) {
+                intent.putExtra("name", user.name)
+            }
+            if (user != null) {
+                intent.putExtra("image", user.profileImage)
+            }
+            if (user != null) {
+                intent.putExtra("uid", user.uid)
+            }
+            if (user != null) {
+                intent.putExtra("token", user.token)
+            }
             context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int {
-        return users.size
+        return users!!.size  
     }
 
     inner class UsersViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
