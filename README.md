@@ -1,19 +1,25 @@
 # Chat-Junction
 A chatting app with advance features like media sharing , sending reactions and public groups.
-##Functionality Description
-    Chat Junction
+
+#Functionality Description
+    
+ Chat Junction
+    
 --->Register
 All users (User’s, TTEs) at first have to register themselves to 
 the system. All the users will have to register with unique email
 or phone number and password.
+
 --->Sign-in
 All users will have to sign-in with unique email / phone 
 number and password through which they can logged in into 
 the application.
+
 --->Public Groups
 This feature will allow the user to join one public group without
 the permission of the Group Admin. In this, user can see the 
 messages of that time in which he/she is not the part of it.
+
 --->Sending Reactions to the messages 
 Users can send rections on the media files shared and the messages shared through different emoji.
 
